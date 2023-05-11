@@ -1,27 +1,22 @@
 ##------------------CARLA server config------------------##
 carla_server:
   host: 'localhost'
-  timeout: 2.0
+  timeout: 5.0
   timestep: 0.1
   retries_on_error: 25
   resolution_x: 600
   resolution_y: 600
-  quality_level: 'Low'
+  quality_level: 'High'
   enable_map_assets: True
-  enable_rendering: False
-  show_display: False
-  carla_path: '/home/hemanth/Carla/CARLA_0.9.11'
+  enable_rendering: True
+  show_display: True
+  carla_path: '/home/zac/Downloads/carla'
 
 ##------------------Experiment config------------------##
 experiment:
   weather:
     [
       'ClearNoon',
-      'SoftRainNoon',
-      'HardRainNoon',
-      'ClearSunset',
-      'SoftRainSunset',
-      'HardRainSunset',
     ]
   background_activity:
     n_vehicles: 20
@@ -34,8 +29,8 @@ experiment:
 vehicle:
   target_speed: 30 # Km/hr
   agent: 'Behavior'
-  behavior: ['cautious', 'normal'] # 'normal' 'cautious', 'aggressive'
-  blueprint: 'vehicle.lincoln.mkz2017'
+  behavior: ['cautious', 'normal', 'aggressive'] # 'normal' 'cautious', 'aggressive'
+  blueprint: 'vehicle.lincoln.mkz_2017'
   sensors:
     collision:
       type: 'sensor.other.collision'
@@ -69,14 +64,14 @@ data_writer:
 
 ##------------------Collector config------------------##
 collector:
-  steps: 300000
+  steps: 3000
   data_write_path: '../../../Desktop/carla_data/Town01/'
   parallel_collect: True
-  number_collectors: 4
+  number_collectors: 1
 
 ##------------------Collector config------------------##
 reader:
-  data_read_path: '../../../Desktop/carla_data/Town01/'
+  data_read_path: '../../../Desktop/carla_data/Town01/Town01_ClearNoon_normal_000000.tar'
   create_movie: True
 
 ##------------------Simulation config------------------##

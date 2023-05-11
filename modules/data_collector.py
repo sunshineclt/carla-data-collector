@@ -117,7 +117,7 @@ class DataCollector:
         self.writer.create_tar_file(file_name, self.write_path)
 
         steps = self.cfg['collector']['steps']
-        for i in range(steps):
+        for i in tqdm(range(steps)):
 
             # Collect the data from agent
             data = self.agent_manager.collect_data(agent, self.pre_process)
